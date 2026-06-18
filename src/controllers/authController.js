@@ -7,7 +7,7 @@ const authController = {
     register: async (req, res) => {
         const { nombre, email, password } = req.body;
         try {
-            const user = new User({ nombre, email, password });
+            const user = new user({ nombre, email, password });
             await user.save(); // el pre-save hook encripta el password
             res.status(201).json({ nombre: user.nombre, email: user.email, rol: user.rol });
         } catch (error) {
